@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
-    const Chat = sequelize.define('Chat',{
+    const Conversation = sequelize.define('Conversation',{
         idUserOne: DataTypes.INTEGER,
         idUserTwo: DataTypes.INTEGER,
     });
-    return Chat;
+    return Conversation;
 }

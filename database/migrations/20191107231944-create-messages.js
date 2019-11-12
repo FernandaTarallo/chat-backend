@@ -12,12 +12,12 @@ module.exports = {
         allowNull: false,
         type: DataTypes.TEXT,
       },
-      idChat: {
+      idConversation: {
         allowNull: true,
         type: DataTypes.INTEGER,
         references: {
           model: {
-              tableName: "Chats",
+              tableName: "Conversations",
           },
           key: "id"
         },
