@@ -7,8 +7,13 @@ exports.index = async(req, res) => {
 }
 
 exports.store = async(req, res) => {
-    const user = await User.create(req.body)
-    res.json(user)
+    try{
+        const user = await User.create(req.body)
+        res.json(user)
+    }
+    catch(error){
+        console.log(error)
+    }
 }
 
 exports.show = async(req, res) => {
