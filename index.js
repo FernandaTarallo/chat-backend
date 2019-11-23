@@ -12,6 +12,7 @@ const conversationRouter = require('./src/routes/conversation')
 
 app.use(cors())
 app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.json())
 
 // User.create({ name: 'Claudio', email: 'claudio@rocketseat.com.br', password: '123456' });
 
@@ -23,6 +24,6 @@ app.use('/conversations', conversationRouter)
 // })
 
 const server = http.createServer(app)
-server.listen(3000, function() {
+server.listen(3001, function() {
     console.log('O servidor está rodando.')
 })
