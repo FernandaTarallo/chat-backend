@@ -14,16 +14,11 @@ app.use(cors())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 
-// User.create({ name: 'Claudio', email: 'claudio@rocketseat.com.br', password: '123456' });
-
 app.use('/users', userRouter)
 app.use('/messages', messageRouter)
 app.use('/conversations', conversationRouter)
-// app.get('/', function(req, res) {
-//     res.send('teste')
-// })
 
 const server = http.createServer(app)
-server.listen(3001, function() {
+server.listen(3000, function() {
     console.log('O servidor está rodando.')
 })
