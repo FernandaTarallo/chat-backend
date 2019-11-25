@@ -65,6 +65,10 @@ exports.authenticate = async(req, res) => {
     })
 }
 
+exports.authUser = async(req, res) => {
+    res.send({user: req.userId})
+}
+
 function generateToken(params = {}) {
     return jwt.sign(params, authConfig.secret, {
         expiresIn: 86400,
