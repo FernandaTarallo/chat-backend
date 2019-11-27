@@ -8,7 +8,7 @@ router.use(authMiddleware)
 const conversationController = require('../controllers/conversationController');
 
 //Rotas 
-
+router.get('/', conversationController.index); //Listar todos
 router.get('/:id', conversationController.show); //Buscar
 
 module.exports = router
