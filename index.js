@@ -19,6 +19,6 @@ app.use('/messages', messageRouter)
 app.use('/conversations', conversationRouter)
 
 const server = http.createServer(app)
-server.listen(3001, function() {
+server.listen(4000, function() {
     console.log('O servidor está rodando.')
 })
