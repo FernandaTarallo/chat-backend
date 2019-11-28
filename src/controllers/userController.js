@@ -11,6 +11,9 @@ exports.index = async(req, res) => {
 
 exports.store = async(req, res) => {
     try{
+
+        console.log(req.file)
+
         const user = await User.create({
             name: req.body.name,
             email: req.body.email,
