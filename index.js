@@ -47,15 +47,17 @@ io.on("connection", async(client) => {
 
     console.log('clientes conectados:'+JSON.stringify(clients))
 
-    // client.on('disconnect', async() => {
+    client.on('disconnect', async() => {
 
-    //     console.log('desconectado: '+id)
+        console.log('desconectado: '+id)
 
-    //     clients = await clients.filter(client => client.id !== id)
+        clients = await clients.filter(client => client.id !== id)
     
-    //     io.emit('clients_update', clients)
-    
-    // })
+        setTimeout(() => {
+            io.emit('clients_update', clients)
+        }, 1000);
+
+    })
 
 })
 
