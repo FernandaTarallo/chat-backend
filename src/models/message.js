@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
         text: DataTypes.TEXT,
         idConversation: DataTypes.INTEGER,
         sendFrom: DataTypes.INTEGER,
+        createdAt: DataTypes.DATE(6)
     });
 
     return Message;

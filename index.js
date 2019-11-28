@@ -29,25 +29,33 @@ global.io = socketio(server);
 global.clients = [];
 
 // Recebe conexão dos usuários no servidor
-io.on("connection", function(client) {
+io.on("connection", async(client) => {
 
     id = client.request._query['id']
 
-    clients = clients.filter(client => client.id !== id)
+    clients = await clients.filter(client => client.id !== id)
 
     clients.push({
         id: id,
         socket: client.id
     })
 
-    io.sockets.emit('clients_update', clients)
+    setTimeout(() => {
+        io.emit('clients_update', clients)
+    }, 1000);
+    
 
     console.log('clientes conectados:'+JSON.stringify(clients))
 
+    // client.on('disconnect', async() => {
+
+    //     console.log('desconectado: '+id)
+
+    //     clients = await clients.filter(client => client.id !== id)
+    
+    //     io.emit('clients_update', clients)
+    
+    // })
+
 })
 
-io.on('disconnect', function() {
-
-    console.log(io.sockets.clients())
-
-})

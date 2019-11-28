@@ -5,12 +5,17 @@ const Op = Sequelize.Op;
 
 exports.index = (req, res) => {
 
-    let users = []
-
     Conversation.findAll({
+        include: {
+            model: Message,
+            required: true
+        },
         where: {
             [Op.or]: [{idUserOne: req.userId}, {idUserTwo: req.userId}]
         },
+        order: [
+            [Message, 'createdAt', 'desc']
+        ]
     }).then(conversations => {
         res.json(conversations)
     })      

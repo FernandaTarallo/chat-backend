@@ -4,5 +4,13 @@ module.exports = (sequelize, DataTypes) => {
         idUserTwo: DataTypes.INTEGER,
     });
 
+    Conversation.associate = (models) => {
+        
+        const { Message } = models
+
+        Conversation.hasMany(Message, {foreignKey: 'idConversation'})
+
+    }
+
     return Conversation;
 }
