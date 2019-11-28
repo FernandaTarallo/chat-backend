@@ -42,7 +42,7 @@ io.on("connection", async(client) => {
 
     setTimeout(() => {
         io.emit('clients_update', clients)
-    }, 1000);
+    }, 2000);
     
 
     console.log('clientes conectados:'+JSON.stringify(clients))
@@ -55,7 +55,7 @@ io.on("connection", async(client) => {
     
         setTimeout(() => {
             io.emit('clients_update', clients)
-        }, 1000);
+        }, 2000);
 
     })
 
