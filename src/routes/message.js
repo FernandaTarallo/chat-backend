@@ -8,7 +8,7 @@ router.use(authMiddleware)
 const messageController = require('../controllers/messageController');
 
 //Rotas 
-router.get('/', messageController.index ); //Listar todos
+router.get('/:id', messageController.index ); //Listar todos
 router.post('/', messageController.store); // Criar
 // router.get('/:id', messageController.show); //Buscar
 router.delete('/:id', messageController.delete); //Deletar

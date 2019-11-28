@@ -7,10 +7,12 @@ exports.index = async(req, res) => {
 
     const conversation = await Conversation.findByPk(req.params.id)
 
-    const messages = await Message.findAll({
-
+    Message.findAll({
+        where: {idConversation: conversation.id},
+    }).then((messages) => {
+        res.json(messages)
     })
-    res.json(messages)
+    
 }
 
 exports.store = async(req, res) => {

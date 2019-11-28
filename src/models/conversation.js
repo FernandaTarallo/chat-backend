@@ -3,5 +3,6 @@ module.exports = (sequelize, DataTypes) => {
         idUserOne: DataTypes.INTEGER,
         idUserTwo: DataTypes.INTEGER,
     });
+
     return Conversation;
 }
