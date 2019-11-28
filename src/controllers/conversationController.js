@@ -21,6 +21,21 @@ exports.index = (req, res) => {
     })      
 }
 
+exports.search = (req, res) => {
+
+    Conversation.findAll({
+        include: {
+            model: User,
+            required: true
+        },
+        where: {
+            c: { [Op.like]:'%' + req.search + '%' },
+        },
+    }).then(conversations => {
+        res.json(conversations)
+    }) 
+}
+
 exports.show = async(req, res) => {
     const conversation = await Conversation.findByPk(req.params.id)
     if(!conversation){
