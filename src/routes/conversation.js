@@ -10,5 +10,6 @@ const conversationController = require('../controllers/conversationController');
 //Rotas 
 router.get('/', conversationController.index); //Listar todos
 router.get('/:id', conversationController.show); //Buscar
+router.get('/:data', conversationController.search); //Pesquisar
 
 module.exports = router
